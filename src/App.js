@@ -160,7 +160,6 @@ class App extends Component {
                     <div className="app-title">
                         <h1 className="app-title-text">{this.title} V0.1</h1>
                     </div>
-
                     {
                         this.state.playerConfirmed ?  <div className="header-options">
                             <button className="add-card-button" onClick={() => this.openCardModal()}>+</button>

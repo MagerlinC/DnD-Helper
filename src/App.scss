@@ -1,212 +1,248 @@
 $green-color: #05e298;
-
-
-.App {
-  width: 100%;
-  input {
-    font-size: 16px;
-    height: 38px;
-    width: 100%;
-    background-color: #f6f6f6;
-    border: none;
-  }
-  button {
-    width: 80px;
-    height: 40px;
-    border: none;
-    color: white;
-    text-transform: uppercase;
-    text-align: center;
-  }
-  .add-card-button {
-    flex-grow: 0;
-    top: 50%;
-    background-color: $green-color;
-    font-size: 26px;
-  }
-  .app-actions {
+$text-grey: #535353;
+$background-grey: #222;
+.nav-bar {
     display: flex;
     flex-direction: row;
-    button {
-      width: 50%;
-    }
-  }
-
-  .card-lists {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    .card-list {
-      width: 100%;
-      display: flex;
-      flex-direction: row;
-    }
-    .spells, .abilities {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-    }
-    .disabled {
-      pointer-events: none;
-      touch-action: none;
-      color: grey;
-    }
-    .spell-card, .ability-card {
-      position: relative;
-      margin: 5px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-      transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-      .spell-cost {
-        font-style: italic;
-        color: #535353;
-      }
-      .card-header {
-        border-bottom: 1px solid lightgrey;
-        position: relative;
-      }
-      .card-use-button {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        right: 5px;
-        width: 60px;
-        height: 35px;
-      }
-      .card-header {
-        display: flex;
-        flex-direction: row;
-      }
-      .card-title, .spell-cost {
-        font-size: 18px;
-        font-weight: normal;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: normal;
-        letter-spacing: normal;
-        text-align: left;
-      }
-      .card-title, .spell-cost, .ability-uses {
-        padding-left: 5px;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-      }
-    }
-  }
-  text-align: center;
-  .card-modal {
-    z-index: 99;
-    background-color: rgba(10,10,10,0.8);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    .card-modal-content {
-      padding: 25px 100px 25px 100px;
-      background-color: white;
-      position: absolute;
-      top: 40%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      .card-modal-types {
-        display: flex;
-        flex-direction: row;
-      }
-
-      .card-modal-add-button {
-        margin-top: 25px;
-        background-color: $green-color !important;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-      }
-
-      .active {
-        background-color: $green-color !important;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-      }
-      .card-modal-type-button {
+    background-color: $background-grey;
+    .nav-item {
         margin: 5px;
-        background-color: rgba(15, 15, 21, 0.6);
-        &:focus {
-          outline: none;
+        flex-grow: 1;
+        a {
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+            &:hover {
+                text-decoration: underline;
+            }
         }
-      }
+        &:last-child {
+            flex-grow: 0;
+        }
+        .signout-button {
+            cursor: pointer;
+            padding: 4px;
+            background-color: white;
+            border: none;
+            outline: none;
+            border-radius: 0;
+        }
     }
-  }
-  .new-player-section {
+}
+.App {
     width: 100%;
-    height: 100%;
-    position: relative;
-    display: flex;
-    flex-direction: column;
     input {
-      position: relative;
-      width: 80%;
-      margin-left: 10%;
+        font-size: 16px;
+        height: 38px;
+        width: 100%;
+        background-color: #f6f6f6;
+        border: none;
     }
-    .confirm-new-player-button {
-      margin-top: 10%;
-      margin-left: 50%;
-      transform: translateX(-50%);
+    button {
+        width: 80px;
+        height: 40px;
+        border: none;
+        color: white;
+        text-transform: uppercase;
+        text-align: center;
     }
-    .ready {
-      background-color: $green-color;
+    .add-card-button {
+        flex-grow: 0;
+        top: 50%;
+        background-color: $green-color;
+        font-size: 26px;
     }
-  }
+    .app-actions {
+        display: flex;
+        flex-direction: row;
+        button {
+            width: 50%;
+        }
+    }
+
+    .card-lists {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        .card-list {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+        }
+        .spells,
+        .abilities {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+        .disabled {
+            pointer-events: none;
+            touch-action: none;
+            color: grey;
+        }
+        .spell-card,
+        .ability-card {
+            position: relative;
+            margin: 5px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
+                0 1px 2px rgba(0, 0, 0, 0.24);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            .spell-cost {
+                font-style: italic;
+                color: #535353;
+            }
+            .card-header {
+                border-bottom: 1px solid lightgrey;
+                position: relative;
+            }
+            .card-use-button {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                right: 5px;
+                width: 60px;
+                height: 35px;
+            }
+            .card-header {
+                display: flex;
+                flex-direction: row;
+            }
+            .card-title,
+            .spell-cost {
+                font-size: 18px;
+                font-weight: normal;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: normal;
+                letter-spacing: normal;
+                text-align: left;
+            }
+            .card-title,
+            .spell-cost,
+            .ability-uses {
+                padding-left: 5px;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+        }
+    }
+    text-align: center;
+    .card-modal {
+        z-index: 99;
+        background-color: rgba(10, 10, 10, 0.8);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        .card-modal-content {
+            padding: 25px 100px 25px 100px;
+            background-color: white;
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            .card-modal-types {
+                display: flex;
+                flex-direction: row;
+            }
+
+            .card-modal-add-button {
+                margin-top: 25px;
+                background-color: $green-color !important;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
+                    0 1px 2px rgba(0, 0, 0, 0.24);
+            }
+
+            .active {
+                background-color: $green-color !important;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
+                    0 1px 2px rgba(0, 0, 0, 0.24);
+            }
+            .card-modal-type-button {
+                margin: 5px;
+                background-color: rgba(15, 15, 21, 0.6);
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+    }
+    .new-player-section {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        input {
+            position: relative;
+            width: 80%;
+            margin-left: 10%;
+        }
+        .confirm-new-player-button {
+            margin-top: 10%;
+            margin-left: 50%;
+            transform: translateX(-50%);
+        }
+        .ready {
+            background-color: $green-color;
+        }
+    }
 }
 
 .App-header {
-  display: flex;
-  flex-direction: row;
-  background-color: #222;
-  height: 40px;
-  padding: 20px;
-  color: white;
+    display: flex;
+    flex-direction: row;
+    background-color: $background-grey;
+    height: 40px;
+    padding: 20px;
+    color: white;
 }
 
 .app-title {
-  flex-grow: 1;
-  font-size: 1em;
-  .app-title-text {
-    top: 50%;
-    transform: translateY(-50%);
-  }
+    flex-grow: 1;
+    font-size: 1em;
+    .app-title-text {
+        top: 50%;
+        transform: translateY(-50%);
+    }
 }
 
 .App-intro {
-  font-size: large;
+    font-size: large;
 }
 
 .app-footer {
-  background-color: rgba(15, 15, 21, 0.6);
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  .total-used {
-    padding-left: 10px;
+    background-color: rgba(15, 15, 21, 0.6);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
     display: flex;
     flex-direction: row;
-    .total-text {
-      font-weight: bold;
+    .total-used {
+        padding-left: 10px;
+        display: flex;
+        flex-direction: row;
+        .total-text {
+            font-weight: bold;
+        }
+        .footer-spacer {
+            flex-grow: 1;
+        }
+        p {
+            padding: 5px;
+            flex-grow: 0;
+            text-transform: uppercase;
+            font-family: Roboto;
+            font-size: 18px;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: normal;
+            letter-spacing: 1px;
+            text-align: center;
+            color: #ffffff;
+        }
     }
-    .footer-spacer {
-      flex-grow: 1;
-    }
-    p {
-      padding: 5px;
-      flex-grow: 0;
-      text-transform: uppercase;
-      font-family: Roboto;
-      font-size: 18px;
-      font-style: normal;
-      font-stretch: normal;
-      line-height: normal;
-      letter-spacing: 1px;
-      text-align: center;
-      color: #ffffff;
-    }
-  }
 }

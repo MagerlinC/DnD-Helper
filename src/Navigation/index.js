@@ -16,45 +16,39 @@ const Navigation = ({ authUser }) => (
 
 const NavigationNonAuth = () => (
     <div>
-        <ul>
-            <li>
-                <Link to={ROUTES.SIGN_IN}>Sign In</Link>
-            </li>
-            <li>
-                <Link to={ROUTES.SIGN_UP}>Sign Up</Link>
-            </li>
-            <li>
+        <div className={"nav-bar"}>
+            <div className={"nav-item"}>
                 <Link to={ROUTES.LANDING}>Landing</Link>
-            </li>
-        </ul>
+            </div>
+            <div className={"nav-item"}>
+                <Link to={ROUTES.SIGN_IN}>Sign In</Link>
+            </div>
+            <div className={"nav-item"}>
+                <Link to={ROUTES.SIGN_UP}>Sign Up</Link>
+            </div>
+        </div>
     </div>
 );
 
 const NavigationAuth = () => (
     <div>
-        <ul>
-            <li>
-                <Link to={ROUTES.SIGN_IN}>Sign In</Link>
-            </li>
-            <li>
-                <Link to={ROUTES.SIGN_UP}>Sign Up</Link>
-            </li>
-            <li>
+        <div className={"nav-bar"}>
+            <div className={"nav-item"}>
                 <Link to={ROUTES.LANDING}>Landing</Link>
-            </li>
-            <li>
+            </div>
+            <div className={"nav-item"}>
                 <Link to={ROUTES.HOME}>Home</Link>
-            </li>
-            <li>
+            </div>
+            <div className={"nav-item"}>
                 <Link to={ROUTES.ACCOUNT}>Account</Link>
-            </li>
-            <li>
+            </div>
+            <div className={"nav-item"}>
                 <Link to={ROUTES.ADMIN}>Admin</Link>
-            </li>
-            <li>
+            </div>
+            <div className={"nav-item"}>
                 <SignOutButton />
-            </li>
-        </ul>
+            </div>
+        </div>
     </div>
 );
 

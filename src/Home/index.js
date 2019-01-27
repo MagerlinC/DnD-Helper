@@ -31,6 +31,18 @@ class HomePage extends Component {
 
     componentDidMount() {
         this.getAvailableSpells();
+        this.setState({ loading: true });
+        this.listener = this.props.firebase.auth.onAuthStateChanged(
+            authUser => {
+                authUser
+                    ? this.setState({ authUser: authUser, loading: false })
+                    : this.setState({ authUser: null });
+            }
+        );
+    }
+
+    componentWillUnmount() {
+        this.listener();
     }
 
     getSpellSlotsAvailable(playerLevel) {
